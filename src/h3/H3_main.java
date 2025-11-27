@@ -1,7 +1,5 @@
 package h3;
 
-import java.util.Arrays;
-
 public class H3_main {
 
     public static boolean compareArraysVal(int[] a, int[] b) {
@@ -44,11 +42,39 @@ public class H3_main {
 
     public static void main(String[] args) {
 
-        int[] a = {};
-        int[] b = {};
-        System.out.println(compareArraysVal(a, b));
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 4};
+        int[] c = {1, 3, 2};
+        int[] d = {1, 2};
+        int[] e = {1, 2, 3};
+        int[] f = {1, 1, 2};
+
+        int[][] arrays = {a, b, c, d, e, f};
+
+        String[] strings = {"a", "b", "c", "d", "e", "f"};
+
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays.length; j++) {
+                if (compareArraysVal(arrays[i], arrays[j]) && i != j) {
+                    System.out.printf("Arrays %s und %s sind identisch.%n", strings[i], strings[j]);
+                }
+            }
+        }
+        System.out.println();
+
+        boolean allEqual = true;
+        for (int i = 1; i < arrays.length && allEqual; i++) {
+            if (!compareArraysVal(arrays[i], arrays[i])) {
+                allEqual = false;
+                break;
+            }
+        }
+        System.out.print("Für alle identischen Arrays ist compareArraysVal ");
+        if (allEqual) {
+            System.out.print("= true");
+        } else {
+            System.out.println("NICHT immer true");
+        }
 
     }
 

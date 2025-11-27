@@ -2,7 +2,7 @@ package h2;
 
 
 public class H2_main {
-    public static boolean compareArray(int[] a, int[] b) {
+    public static boolean compareArrays(int[] a, int[] b) {
         if (a.length != b.length) {
             return false;
         }
@@ -22,11 +22,31 @@ public class H2_main {
         int[] d = {1, 2};
         int[] e = {1, 2, 3};
 
-        System.out.println(compareArray(a, a));
-        System.out.println(compareArray(a, b));
-        System.out.println(compareArray(a, c));
-        System.out.println(compareArray(a, d));
-        System.out.println(compareArray(a, e));
+        int[][] arrays = {a, b, c, d, e};
+
+        String[] strings = {"a", "b", "c", "d", "e"};
+
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays.length; j++) {
+                if (compareArrays(arrays[i], arrays[j]) && i != j) {
+                    System.out.printf("compareArrays(%s,%s) = %b%n", strings[i], strings[j], compareArrays(arrays[i], arrays[j]));
+                }
+            }
+        }
+        System.out.println();
+        boolean allEqual = true;
+        for (int i = 1; i < arrays.length && allEqual; i++) {
+            if (!compareArrays(arrays[i], arrays[i])) {
+                allEqual = false;
+                break;
+            }
+        }
+        System.out.print("Für alle identischen Arrays ist compareArrays ");
+        if (allEqual) {
+            System.out.print("= true");
+        } else {
+            System.out.println("NICHT immer true");
+        }
 
     }
 }

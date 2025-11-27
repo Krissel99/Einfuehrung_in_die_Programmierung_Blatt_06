@@ -22,27 +22,23 @@ public class H1_main {
         int[] c = {2, 4, 6};
         int[] d = {6, 4, 9};
 
-        System.out.println(isMirrorArray(a, a));
-        System.out.println(isMirrorArray(a, b));
-        System.out.println(isMirrorArray(a, c));
-        System.out.println(isMirrorArray(a, d));
-        System.out.println();
+        int[][]  arrays  = {a, b, c, d};
+        String[] strings = {"a", "b", "c", "d"};
 
-        System.out.println(isMirrorArray(b, a));
-        System.out.println(isMirrorArray(b, b));
-        System.out.println(isMirrorArray(b, c));
-        System.out.println(isMirrorArray(b, d));
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays.length; j++) {
+                if (isMirrorArray(arrays[i], arrays[j]) && i != j) {
+                    System.out.printf("isMirrorArray(%s,%s) = %b%n", strings[i], strings[j], isMirrorArray(arrays[i], arrays[j]));
+                }
+            }
+        }
         System.out.println();
-
-        System.out.println(isMirrorArray(c, a));
-        System.out.println(isMirrorArray(c, b));
-        System.out.println(isMirrorArray(c, c));
-        System.out.println(isMirrorArray(c, d));
-        System.out.println();
-
-        System.out.println(isMirrorArray(d, a));
-        System.out.println(isMirrorArray(d, b));
-        System.out.println(isMirrorArray(d, c));
-        System.out.println(isMirrorArray(d, d));
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays.length; j++) {
+                if (isMirrorArray(arrays[i], arrays[j]) && i == j) {
+                    System.out.printf("Arrays %s und %s sind identisch.%n", strings[i], strings[j]);
+                }
+            }
+        }
     }
 }
