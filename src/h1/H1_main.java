@@ -21,22 +21,15 @@ public class H1_main {
         int[] b = {4, 3, 2, 1};
         int[] c = {2, 4, 6};
         int[] d = {6, 4, 9};
+        int[] e = {1, 2, 3, 6};
 
-        int[][]  arrays  = {a, b, c, d};
-        String[] strings = {"a", "b", "c", "d"};
+        int[][]  arrays  = {a, b, c, d, e};
+        String[] strings = {"a", "b", "c", "d", "e"};
 
         for (int i = 0; i < arrays.length; i++) {
             for (int j = 0; j < arrays.length; j++) {
                 if (isMirrorArray(arrays[i], arrays[j]) && i != j) {
                     System.out.printf("isMirrorArray(%s,%s) = %b%n", strings[i], strings[j], isMirrorArray(arrays[i], arrays[j]));
-                }
-            }
-        }
-        System.out.println();
-        for (int i = 0; i < arrays.length; i++) {
-            for (int j = 0; j < arrays.length; j++) {
-                if (isMirrorArray(arrays[i], arrays[j]) && i == j) {
-                    System.out.printf("Arrays %s und %s sind identisch.%n", strings[i], strings[j]);
                 }
             }
         }
